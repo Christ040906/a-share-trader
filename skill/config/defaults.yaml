@@ -1,0 +1,20 @@
+trading:
+  max_price: 30
+  exclude_prefixes: ["300", "301"]
+  exclude_st: true
+  max_recommendations: 3
+  max_same_theme_in_top3: 2
+  holding_period: "2d_to_weeks"
+  stop_style: "structural_invalidation"
+  profit_style: "staged_exit"
+
+freshness:
+  intraday_market_max_age_minutes: 5
+  final_candidate_quote_max_age_minutes: 1
+  news_max_age_minutes: 60
+  announcement_source_preference: "official"
+
+ranking:
+  prioritize_sector_acceleration: true
+  require_same_sector_alternative_check: true
+  avoid_high_crowding: true

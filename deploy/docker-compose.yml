@@ -1,0 +1,24 @@
+services:
+  ashare-realtime-mcp:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    environment:
+      MARKET_DATA_PROVIDER_ORDER: akshare,tushare
+      TUSHARE_TOKEN: ${TUSHARE_TOKEN:-}
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8000
+      MCP_CACHE_SECONDS: 20
+      ENABLE_SNAPSHOT_WORKER: "true"
+      SNAPSHOT_INTERVAL_SECONDS: 300
+      SNAPSHOT_DB_PATH: /data/ashare_snapshots.sqlite3
+      SNAPSHOT_RETENTION_DAYS: 3
+      AKSHARE_RETRIES: 1
+    volumes:
+      - ashare_data:/data
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+volumes:
+  ashare_data:

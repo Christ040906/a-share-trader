@@ -1,0 +1,5 @@
+{
+  "name": "A-share realtime",
+  "server_url": "https://YOUR-SERVICE.up.railway.app/mcp",
+  "authentication": "none"
+}

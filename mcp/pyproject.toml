@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ashare-realtime-mcp"
+version = "0.4.0"
+description = "Free-first, read-only MCP server for near-real-time China A-share market data"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=2.3.0,<3",
+  "akshare>=1.19.1,<2",
+  "pandas>=2.2",
+  "tushare>=1.4.46",
+  "starlette>=0.40",
+  "uvicorn>=0.30",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+ashare-realtime-mcp = "ashare_realtime_mcp.server:main"
+ashare-snapshot-worker = "ashare_realtime_mcp.worker:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ashare_realtime_mcp"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
