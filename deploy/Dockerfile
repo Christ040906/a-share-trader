@@ -14,5 +14,4 @@ ENV MCP_HOST=0.0.0.0 \
     SNAPSHOT_INTERVAL_SECONDS=300 \
     SNAPSHOT_DB_PATH=/data/ashare_snapshots.sqlite3
 
-VOLUME ["/data"]
 CMD ["ashare-realtime-mcp"]
